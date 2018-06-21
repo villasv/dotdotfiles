@@ -8,15 +8,15 @@ lrp_dpkg () {
   PRURL=$(lrp $1)
   RFILE=${PRURL##*/}
 
-  if [ ! -f ~/.dotfiles/$RFILE.lock ];
+  if [ ! -f ~/.dotfiles/${PNAME}_${RFILE}.lock ];
   then
     echo Installing latest $PNAME: $RFILE
-    curl -L $PRURL --output ~/.dotfiles/$RFILE
-    sudo dpkg -i ~/.dotfiles/$RFILE \
-      && touch ~/.dotfiles/$RFILE.lock \
-      && rm $RFILE
+    curl -L $PRURL --output ~/.dotfiles/$RFILE \
+      && sudo dpkg -i ~/.dotfiles/$RFILE \
+      && rm ~/.dotfiles/$RFILE \
+      && touch ~/.dotfiles/${PNAME}_${RFILE}.lock
   else
-    echo "$PNAME already the newest version ($RFILE)."
+    echo "$PNAME is already the newest version ($RFILE)."
   fi
 }
 lrp_dpkg BurntSushi/ripgrep
@@ -29,15 +29,15 @@ ltb_install () {
   PRURL=$(ltb $1)
   RFILE=${PRURL##*/}
 
-  if [ ! -f ~/.dotfiles/$PNAME_$RFILE.lock ];
+  if [ ! -f ~/.dotfiles/${PNAME}_${RFILE}.lock ];
   then
     echo Installing latest $PNAME: $RFILE
     mkdir -p ~/.fzf \
       && curl -L $PRURL | tar -xz -C ~/.$PNAME --strip-components=1 \
-      && ~/.$PNAME/install \
-      && touch ~/.dotfiles/$PNAME_$RFILE.lock
+      && yes | ~/.$PNAME/install \
+      && touch ~/.dotfiles/${PNAME}_${RFILE}.lock
   else
-    echo "$PNAME already the newest version ($RFILE)."
+    echo "$PNAME is already the newest version ($RFILE)."
   fi
 }
 ltb_install junegunn/fzf
