@@ -7,6 +7,7 @@ endif
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'	" directory tree explorer
+Plug 'tpope/vim-fugitive'	" git wrapper
 call plug#end()
 
 syntax enable
