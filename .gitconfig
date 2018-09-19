@@ -6,6 +6,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX --pattern '^(Date|added|deleted|modified): '
 
 [credential]
 	helper = cache --timeout=3600
