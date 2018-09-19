@@ -1,0 +1,35 @@
+[user]
+	name = Victor Villas
+	email = villasv@outlook.com
+	login = villasv
+
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+
+[credential]
+	helper = cache --timeout=3600
+
+[push]
+	default = simple
+[pull]
+	rebase = true
+
+[color]
+	ui = true
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[achievement]
+	upload = true
+
