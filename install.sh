@@ -16,7 +16,7 @@ lrp_dpkg () {
       && touch ~/.dotfiles/$RFILE.lock \
       && rm $RFILE
   else
-    echo "$PNAME already the newest version ($RFILE)."
+    echo "$PNAME is already the newest version ($RFILE)."
   fi
 }
 lrp_dpkg BurntSushi/ripgrep
@@ -29,22 +29,22 @@ ltb_install () {
   PRURL=$(ltb $1)
   RFILE=${PRURL##*/}
 
-  if [ ! -f ~/.dotfiles/$PNAME_$RFILE.lock ];
+  if [ ! -f ~/.dotfiles/${PNAME}_${RFILE}.lock ];
   then
     echo Installing latest $PNAME: $RFILE
     mkdir -p ~/.fzf \
       && curl -L $PRURL | tar -xz -C ~/.$PNAME --strip-components=1 \
       && ~/.$PNAME/install \
-      && touch ~/.dotfiles/$PNAME_$RFILE.lock
+      && touch ~/.dotfiles/${PNAME}_${RFILE}.lock
   else
-    echo "$PNAME already the newest version ($RFILE)."
+    echo "$PNAME is already the newest version ($RFILE)."
   fi
 }
 ltb_install junegunn/fzf
 
 sudo apt -qq install jq
 
-ln -sf ~/.dotfiles/.zshrc ~/.gitconfig
+ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 
