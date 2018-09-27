@@ -72,14 +72,20 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# aliases
 
+## fzf bootstrap
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# WSL specific
+## useful mount link
+[[ ! -e /c/ ]] && ln -s /mnt/c /
+cd $(pwd | sed 's/\/mnt\/c\//\/c\//')
+
+## docker-toolbox boostrap
+export VBOX_MSI_INSTALL_PATH='/c/Program Files/Oracle/VirtualBox/'
+pushd '/c/Program Files/Docker Toolbox/' > /dev/null
+./start.sh exit > /dev/null
+eval $(./docker-machine.exe env --shell bash | sed 's?\\?/?g;s?C:/?/mnt/c/?g')
+popd > /dev/null
 
