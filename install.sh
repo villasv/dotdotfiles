@@ -1,5 +1,10 @@
 #!/bin/bash
 
+sudo apt -qq install jq zsh
+
+# Oh-My-Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 lrp () { # latest release matching
   curl -L --silent "https://api.github.com/repos/$1/releases/latest" | jq -r '.assets[].browser_download_url' | grep deb
 }
@@ -41,8 +46,6 @@ ltb_install () {
   fi
 }
 ltb_install junegunn/fzf
-
-sudo apt -qq install jq
 
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc

@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH=/home/villasv/.oh-my-zsh
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -79,7 +79,7 @@ source $ZSH/oh-my-zsh.sh
 
 # WSL specific
 ## useful mount link
-[[ ! -e /c/ ]] && ln -s /mnt/c /
+[[ ! -e /c/ ]] && sudo ln -s /mnt/c /
 cd $(pwd | sed 's/\/mnt\/c\//\/c\//')
 
 ## docker-toolbox boostrap
