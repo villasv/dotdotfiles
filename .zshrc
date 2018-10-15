@@ -1,3 +1,5 @@
+. ~/.profile
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -89,3 +91,7 @@ pushd '/c/Program Files/Docker Toolbox/' > /dev/null
 eval $(./docker-machine.exe env --shell bash | sed 's?\\?/?g;s?C:/?/mnt/c/?g')
 popd > /dev/null
 
+## pyenv
+export PATH="/home/villasv/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
