@@ -19,8 +19,8 @@ cd $(pwd | sed 's/\/mnt\/c\//\/c\//')
 
 ## docker-toolbox boostrap
 export VBOX_MSI_INSTALL_PATH='/mnt/c/Program Files/Oracle/VirtualBox/'
-pushd '/mnt/c/Program Files/Docker Toolbox/' > /dev/null
-./start.sh exit > /dev/null
+pushd '/mnt/c/Program Files/Docker Toolbox/' >/dev/null
+./docker-machine.exe create -d virtualbox --virtualbox-memory 4096 --virtualbox-share-folder "\\\?\c:\Users:/mnt/c/Users" default &>/dev/null
 eval $(./docker-machine.exe env --shell bash | sed 's?\\?/?g;s?C:/?/mnt/c/?g')
 popd > /dev/null
 
