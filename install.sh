@@ -44,7 +44,7 @@ install_github_debian() {
     echo "$PROJECT is already the newest version ($RELEASE)."
   fi
 }
-install_github_tartag() {
+install_github_source() {
   TAR_URL="$(
     curl -fsSL "https://api.github.com/repos/$1/tags" |\
     jq -r '.[0].tarball_url'
@@ -82,8 +82,7 @@ nvm install 10.14.1
 
 ## Python
 curl -fsSL https://pyenv.run | sh
-pyenv install 3.8.0
-pyenv global 3.8.0
+pyenv install 3.8.0 && pyenv global 3.8.0
 
 ## Rust
 curl -fsSL https://sh.rustup.rs | sh -s -- -y
@@ -92,7 +91,7 @@ curl -fsSL https://sh.rustup.rs | sh -s -- -y
 # Tools
 ## CLI goodies
 install_github_debian BurntSushi/ripgrep
-install_github_tartag junegunn/fzf
+install_github_source junegunn/fzf
 install_github_binary so-fancy/diff-so-fancy master/third_party/build_fatpack diff-so-fancy
 cargo install tealdeer
 
