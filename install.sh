@@ -17,10 +17,13 @@ then
   echo " [OK]"
 fi
 
-
 # Installer Methods
+install_github_binary() {
+  sudo wget -qP /usr/local/bin "https://raw.githubusercontent.com/$1/$2/$3"
+  sudo chmod +x "/usr/local/bin/$3"
+}
 install_github_script() {
-  sh -c "$( curl -fsSL "https://raw.githubusercontent.com/$1/$2/$3" )"
+  curl -fsSL "https://raw.githubusercontent.com/$1/$2/$3" | sh
 }
 install_github_debian() {
   DEB_URL="$(
@@ -62,14 +65,32 @@ install_github_tartag() {
 }
 
 
-# Tools
-## ZSH
+# Shell
 sudo apt -qq install zsh
 install_github_script robbyrussell/oh-my-zsh master tools/install.sh
 
+
+# Runtimes
+## Build Essential
+sudo apt install -qq build-essential
+
+## Node
+install_github_script nvm-sh/nvm master install.sh
+nvm install 10.14.1
+
+## Python
+curl -fsSL https://pyenv.run | sh
+# pyenv install 3.8.0
+
+## Rust
+curl -fsSL https://sh.rustup.rs | sh -s -- -y
+
+
+# Tools
 ## CLI goodies
 install_github_debian BurntSushi/ripgrep
 install_github_tartag junegunn/fzf
+install_github_binary so-fancy/diff-so-fancy master third_party/build_fatpack/diff-so-fancy
 
 ## Shellcheck
 sudo apt -qq install shellcheck

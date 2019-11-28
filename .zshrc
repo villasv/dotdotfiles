@@ -11,24 +11,17 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-## fzf bootstrap
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Runtimes
+## Node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# WSL specific
-## useful mount link
-[[ ! -e /c/ ]] && sudo ln -s /mnt/c /
-cd $(pwd | sed 's/\/mnt\/c\//\/c\//')
-
-## pyenv
+## Python
 export PATH="/home/villasv/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-## nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-## yarn tools
-export PATH="/home/villasv/.yarn/bin:$PATH"
-
+# Tools
+## fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
