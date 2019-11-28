@@ -72,7 +72,9 @@ install_github_script robbyrussell/oh-my-zsh master tools/install.sh
 
 # Runtimes
 ## Build Essential
-sudo apt install -qq build-essential
+sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev
+xz-utils tk-dev libffi-dev liblzma-dev pkg-config
 
 ## Node
 install_github_script nvm-sh/nvm master install.sh
@@ -80,7 +82,8 @@ nvm install 10.14.1
 
 ## Python
 curl -fsSL https://pyenv.run | sh
-# pyenv install 3.8.0
+pyenv install 3.8.0
+pyenv global 3.8.0
 
 ## Rust
 curl -fsSL https://sh.rustup.rs | sh -s -- -y
@@ -90,7 +93,8 @@ curl -fsSL https://sh.rustup.rs | sh -s -- -y
 ## CLI goodies
 install_github_debian BurntSushi/ripgrep
 install_github_tartag junegunn/fzf
-install_github_binary so-fancy/diff-so-fancy master third_party/build_fatpack/diff-so-fancy
+install_github_binary so-fancy/diff-so-fancy master/third_party/build_fatpack diff-so-fancy
+cargo install tealdeer
 
 ## Shellcheck
 sudo apt -qq install shellcheck
