@@ -71,6 +71,9 @@ install_github_script robbyrussell/oh-my-zsh master tools/install.sh
 install_github_debian BurntSushi/ripgrep
 install_github_tartag junegunn/fzf
 
+## Shellcheck
+sudo apt -qq install shellcheck
+
 # Symlinks
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/.vimrc ~/.vimrc
