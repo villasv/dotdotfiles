@@ -101,6 +101,7 @@ pip install --user thefuck
 sudo apt -qq install shellcheck
 
 # Symlinks
-ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/.dotfiles/.vimrc ~/.vimrc
-ln -sf ~/.dotfiles/.zshrc ~/.zshrc
+ln -sf "$DOTS/.profile"   "$HOME/.profile"
+ln -sf "$DOTS/.zshrc"     "$HOME/.zshrc"
+ln -sf "$DOTS/.vimrc"     "$HOME/.vimrc"
+ln -sf "$DOTS/.gitconfig" "$HOME/.gitconfig"
