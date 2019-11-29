@@ -81,6 +81,7 @@ install_github_script nvm-sh/nvm master install.sh
 nvm install 10.14.1
 
 ## Python
+sudo apt -qq install python-minimal
 curl -fsSL https://pyenv.run | sh
 pyenv install 3.8.0 && pyenv global 3.8.0
 
@@ -94,6 +95,7 @@ install_github_debian BurntSushi/ripgrep
 install_github_source junegunn/fzf
 install_github_binary so-fancy/diff-so-fancy master/third_party/build_fatpack diff-so-fancy
 cargo install tealdeer
+pip install --user thefuck
 
 ## Shellcheck
 sudo apt -qq install shellcheck
