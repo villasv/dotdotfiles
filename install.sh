@@ -82,12 +82,13 @@ install_github_script robbyrussell/oh-my-zsh master tools/install.sh
 
 ## Node
 install_github_script nvm-sh/nvm master install.sh
+. $HOME/.nvm/nvm.sh
 nvm install 10.14.1
 
 ## Python
 sudo apt -qq install python-minimal
 curl -fsSL https://pyenv.run | sh
-pyenv install 3.8.0 && pyenv global 3.8.0
+pyenv install 3.8.1 && pyenv global 3.8.1
 
 ## Rust
 curl -fsSL https://sh.rustup.rs | sh -s -- -y
