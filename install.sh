@@ -1,5 +1,13 @@
 #!/bin/bash
 
+## System Basics
+sudo apt -y update
+sudo apt -y upgrade
+sudo apt -y install vim curl wget jq
+sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev \
+libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
+xz-utils tk-dev libffi-dev liblzma-dev pkg-config
+
 DOTS="$HOME/.dotfiles"
 
 
@@ -71,10 +79,6 @@ install_github_script robbyrussell/oh-my-zsh master tools/install.sh
 
 
 # Runtimes
-## Build Essential
-sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev
-libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev
-xz-utils tk-dev libffi-dev liblzma-dev pkg-config
 
 ## Node
 install_github_script nvm-sh/nvm master install.sh
