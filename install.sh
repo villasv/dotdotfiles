@@ -82,6 +82,7 @@ install_github_source() {
 # Shell
 sudo apt -qq install zsh
 install_github_script robbyrussell/oh-my-zsh master tools/install.sh
+chsh -s $(which zsh)
 
 
 # Runtimes
