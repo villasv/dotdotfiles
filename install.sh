@@ -1,6 +1,8 @@
 #!/bin/bash
 
-## System Basics
+# System
+
+## Base Packages
 sudo apt -y update
 sudo apt -y upgrade
 sudo apt -y install vim curl wget jq
@@ -8,16 +10,20 @@ sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
 xz-utils tk-dev libffi-dev liblzma-dev pkg-config
 
+## Shell
+sudo apt -qq install zsh
+install_github_script robbyrussell/oh-my-zsh master tools/install.sh
+chsh -s $(which zsh)
+
 ## Fonts
 mkdir -p /usr/share/fonts/truetype/cascadia
 sudo wget -qP /usr/share/fonts/truetype/cascadia "https://github.com/microsoft/cascadia-code/releases/download/v1911.21/CascadiaPL.ttf"
 sudo wget -qP /usr/share/fonts/truetype/cascadia "https://github.com/microsoft/cascadia-code/releases/download/v1911.21/CascadiaMonoPL.ttf"
 fc-cache -f -v
 
-
+## Bootstrap Dotfiles
 DOTS="$HOME/.dotfiles"
 
-# Bootstrap Dotfiles
 CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 if [ "$CURR_DIR" != "$DOTS" ]
 then
@@ -31,7 +37,15 @@ then
   echo " [OK]"
 fi
 
+ln -sf "$DOTS/.profile"   "$HOME/.profile"
+ln -sf "$DOTS/.zshrc"     "$HOME/.zshrc"
+ln -sf "$DOTS/.vimrc"     "$HOME/.vimrc"
+ln -sf "$DOTS/.gitconfig" "$HOME/.gitconfig"
+sudo ln -sf "$DOTS/wsl.conf"   "/etc/wsl.conf"
+
+
 # Installer Methods
+
 install_github_binary() {
   sudo wget -qP /usr/local/bin "https://raw.githubusercontent.com/$1/$2/$3"
   sudo chmod +x "/usr/local/bin/$3"
@@ -79,12 +93,6 @@ install_github_source() {
 }
 
 
-# Shell
-sudo apt -qq install zsh
-install_github_script robbyrussell/oh-my-zsh master tools/install.sh
-chsh -s $(which zsh)
-
-
 # Runtimes
 
 ## Node
@@ -102,6 +110,7 @@ curl -fsSL https://sh.rustup.rs | sh -s -- -y
 
 
 # Tools
+
 ## CLI goodies
 install_github_debian BurntSushi/ripgrep
 install_github_source junegunn/fzf
@@ -111,10 +120,3 @@ pip install --user thefuck
 
 ## Shellcheck
 sudo apt -qq install shellcheck
-
-# Symlinks
-ln -sf "$DOTS/.profile"   "$HOME/.profile"
-ln -sf "$DOTS/.zshrc"     "$HOME/.zshrc"
-ln -sf "$DOTS/.vimrc"     "$HOME/.vimrc"
-ln -sf "$DOTS/.gitconfig" "$HOME/.gitconfig"
-sudo ln -sf "$DOTS/wsl.conf"   "/etc/wsl.conf"
