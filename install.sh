@@ -8,8 +8,14 @@ sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
 xz-utils tk-dev libffi-dev liblzma-dev pkg-config
 
-DOTS="$HOME/.dotfiles"
+## Fonts
+mkdir -p /usr/share/fonts/truetype/cascadia
+sudo wget -qP /usr/share/fonts/truetype/cascadia "https://github.com/microsoft/cascadia-code/releases/download/v1911.21/CascadiaPL.ttf"
+sudo wget -qP /usr/share/fonts/truetype/cascadia "https://github.com/microsoft/cascadia-code/releases/download/v1911.21/CascadiaMonoPL.ttf"
+fc-cache -f -v
 
+
+DOTS="$HOME/.dotfiles"
 
 # Bootstrap Dotfiles
 CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
