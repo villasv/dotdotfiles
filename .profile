@@ -14,7 +14,7 @@ for cmd in $(
     find "${HOME}/.nvm/versions/node" -maxdepth 3 -type l -wholename '*/bin/*' -print0 \
     | xargs -0 -n1 basename | sort | uniq; echo "node" "nvm"
 ); do
-    eval "${cmd}(){ unset -f ${cmd}; load_nvm; ${cmd} \$@ }"
+    eval "${cmd}(){ unset -f ${cmd}; load_nvm; ${cmd} \$@; }"
 done
 
 ## Python
