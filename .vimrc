@@ -8,7 +8,7 @@ endif
 call plug#begin()
 Plug 'scrooloose/nerdtree'	" directory tree explorer
 Plug 'tpope/vim-fugitive'	" git commands inside vim
-Plug 'junegunn/fzf'		" fuzzy finder
+Plug 'junegunn/fzf'		" files fuzzy finder
 call plug#end()
 
 " general settings
@@ -16,18 +16,22 @@ syntax enable			" syntax hightlight for known languages
 set number relativenumber	" current line number with relative jumps
 set autoindent			" copy indentation from previous line
 set smartindent			" guess when more indentation is needed
-set scrolloff=3			" scroll buffer in advance of a few lines
-set confirm			" ask to save on closing edited buffer
 
 " searching
 set ignorecase			" ignore case when searching by default
 set smartcase			" unless search terms contain upper case
 
 " buffers
-set hidden			" to hide buffers instead of closing them
+set hidden			" hide buffers instead of closing them
+set confirm			" ask to save on closing edited buffer
+set scrolloff=3			" scroll buffer in advance of a few lines
 
 " mappings
-map @ :NERDTreeToggle<CR>
+let mapleader = " "		" uses spacebar as leader touch typing
+set showcmd			" show when leader is waiting for key
+set timeoutlen=500		" shorten how much leader will wait
+map <Leader>t :NERDTreeToggle<CR>
+map <Leader>f :FZF<CR>
 
 " home row remaps
 noremap ; l
