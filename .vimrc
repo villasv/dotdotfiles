@@ -18,10 +18,12 @@ call plug#end()
 syntax enable				" syntax hightlight for known languages
 colorscheme solarized		" activate solarized color palette
 set number relativenumber	" current line number with relative jumps
+set updatetime=300			" faster updates for git diff markers
 set autoindent				" copy indentation from previous line
 set smartindent				" guess when more indentation is needed
-set updatetime=1000			" faster updates for git diff markers
-set tabstop=4				" sane default of 4 spaces wide tabs
+set tabstop=4				" sane default of 4 characters wide tabs
+set shiftwidth=4			" spaces per shift (should equal tabstop)
+set foldmethod=indent		" allow folding per indent levels
 
 " searching
 set ignorecase			" ignore case when searching by default
@@ -44,10 +46,12 @@ noremap <C-w>k <C-w>j
 noremap <C-w>j <C-w>h
 
 " mappings
-set showcmd							" show when leader is waiting for key
+set showcmd							" show command about to be executed
 set timeoutlen=500					" shorten how much leader will wait
 map <Leader>t :NERDTreeToggle<CR>
 map <Leader>f :Files<CR>
 map <Leader>c :History:<CR>
 map <Leader>g :Rg<CR>
 
+" custom extension associations
+au BufRead,BufNewFile *.template	set filetype=yaml
