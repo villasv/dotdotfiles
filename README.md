@@ -9,3 +9,8 @@
 - shellcheck
 - tldr
 - zsh + oh-my-zsh
+
+Aku Soku Zan wallpaper is derived work from [this DeviantArt][art].
+
+[art]: https://www.deviantart.com/rpmsauron/art/Tattoo-Aku-Soku-Zan-178682914
+
