@@ -11,6 +11,7 @@ Plug 'junegunn/fzf'						" files finder
 Plug 'junegunn/fzf.vim'					" fzf integrations
 Plug 'altercation/vim-colors-solarized'	" solarized colors
 Plug 'airblade/vim-gitgutter'			" git diff markers
+Plug 'dense-analysis/ale'               " async lint engine
 Plug 'tpope/vim-fugitive'				" git commands
 call plug#end()
 
@@ -45,13 +46,22 @@ noremap <C-w>l <C-w>k
 noremap <C-w>k <C-w>j
 noremap <C-w>j <C-w>h
 
-" mappings
+" general mappings
 set showcmd							" show command about to be executed
 set timeoutlen=500					" shorten how much leader will wait
-map <Leader>t :NERDTreeToggle<CR>
+map <Leader>tt :NERDTreeToggle<CR>
+map <Leader>tf :NERDTreeFind<CR>
 map <Leader>f :Files<CR>
 map <Leader>c :History:<CR>
 map <Leader>g :Rg<CR>
 
+" insert mode mappings
+inoremap jj <esc>
+
+" global lint configs
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '!>'
+let g:ale_sign_warning = '?>'
+
 " custom extension associations
-au BufRead,BufNewFile *.template	set filetype=yaml
+autocmd BufRead,BufNewFile *.template set filetype=yaml
