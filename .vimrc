@@ -13,6 +13,7 @@ Plug 'altercation/vim-colors-solarized'	" solarized colors
 Plug 'airblade/vim-gitgutter'			" git diff markers
 Plug 'dense-analysis/ale'               " async lint engine
 Plug 'tpope/vim-fugitive'				" git commands
+Plug 'leafgarland/vim-polyglot'			" languages pack
 call plug#end()
 
 " general settings
