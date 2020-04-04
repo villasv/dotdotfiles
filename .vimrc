@@ -6,14 +6,15 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'scrooloose/nerdtree'				" tree explorer
-Plug 'junegunn/fzf'						" files finder
-Plug 'junegunn/fzf.vim'					" fzf integrations
 Plug 'altercation/vim-colors-solarized'	" solarized colors
-Plug 'airblade/vim-gitgutter'			" git diff markers
-Plug 'dense-analysis/ale'               " async lint engine
+Plug 'scrooloose/nerdtree'				" tree explorer
+Plug 'junegunn/fzf'						" fuzzy finder base
+Plug 'junegunn/fzf.vim'					" fuzzy finder cmds
+Plug 'skywind3000/asyncrun.vim'			" shell commander
 Plug 'tpope/vim-fugitive'				" git commands
+Plug 'airblade/vim-gitgutter'			" git side markings
 Plug 'leafgarland/vim-polyglot'			" languages pack
+Plug 'dense-analysis/ale'               " async lint engine
 call plug#end()
 
 " general settings
@@ -50,11 +51,12 @@ noremap <C-w>j <C-w>h
 " general mappings
 set showcmd							" show command about to be executed
 set timeoutlen=500					" shorten how much leader will wait
+map <Leader>to :NERDTreeFind<CR>
 map <Leader>tt :NERDTreeToggle<CR>
-map <Leader>tf :NERDTreeFind<CR>
-map <Leader>f :Files<CR>
-map <Leader>c :History:<CR>
-map <Leader>g :Rg<CR>
+map <Leader>ff :Files<CR>
+map <Leader>fe :Rg<CR>
+map <Leader>cl :AsyncRun 
+map <Leader>ch :History:<CR>
 
 " insert mode mappings
 inoremap jj <esc>
