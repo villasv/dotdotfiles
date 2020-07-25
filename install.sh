@@ -10,11 +10,6 @@ sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev \
 libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
 xz-utils tk-dev libffi-dev liblzma-dev pkg-config
 
-## Shell
-sudo apt -qq install zsh
-install_github_script robbyrussell/oh-my-zsh master tools/install.sh
-chsh -s $(which zsh)
-
 ## Fonts
 mkdir -p /usr/share/fonts/truetype/cascadia
 sudo wget -qP /usr/share/fonts/truetype/cascadia "https://github.com/microsoft/cascadia-code/releases/download/v1911.21/CascadiaPL.ttf"
@@ -38,7 +33,6 @@ then
 fi
 
 ln -sf "$DOTS/.profile"   "$HOME/.profile"
-ln -sf "$DOTS/.zshrc"     "$HOME/.zshrc"
 ln -sf "$DOTS/.vimrc"     "$HOME/.vimrc"
 ln -sf "$DOTS/.gitconfig" "$HOME/.gitconfig"
 sudo ln -sf "$DOTS/wsl.conf"   "/etc/wsl.conf"
