@@ -22,5 +22,9 @@ export PATH="/home/villasv/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+## Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 ## Rust
 export PATH="$HOME/.cargo/bin:$PATH"

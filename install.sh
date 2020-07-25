@@ -97,6 +97,10 @@ nvm install 10.14.1
 curl -fsSL https://pyenv.run | sh
 pyenv install 3.8.5 && pyenv global 3.8.5
 
+## Ruby
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
+rbenv install 2.7.1 && rbenv global 2.7.1
+
 ## Rust
 curl -fsSL https://sh.rustup.rs | sh -s -- -y
 
