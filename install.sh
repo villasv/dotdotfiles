@@ -1,16 +1,14 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # System
 
 ## Base Packages
 sudo apt -y update
 sudo apt -y upgrade
-sudo apt -y install vim curl wget jq
-sudo apt -y install make build-essential libssl-dev zlib1g-dev libbz2-dev \
-libreadline-dev libsqlite3-dev llvm libncurses5-dev libncursesw5-dev \
-xz-utils tk-dev libffi-dev liblzma-dev pkg-config
+sudo apt -y install vim curl wget jq make build-essential
 
 ## Fonts
+sudo apt install fontconfig
 mkdir -p /usr/share/fonts/truetype/cascadia
 sudo wget -qP /usr/share/fonts/truetype/cascadia "https://github.com/microsoft/cascadia-code/releases/download/v1911.21/CascadiaPL.ttf"
 sudo wget -qP /usr/share/fonts/truetype/cascadia "https://github.com/microsoft/cascadia-code/releases/download/v1911.21/CascadiaMonoPL.ttf"
@@ -33,6 +31,7 @@ then
 fi
 
 ln -sf "$DOTS/.profile"   "$HOME/.profile"
+ln -sf "$DOTS/.bashrc"   "$HOME/.bashrc"
 ln -sf "$DOTS/.vimrc"     "$HOME/.vimrc"
 ln -sf "$DOTS/.gitconfig" "$HOME/.gitconfig"
 sudo ln -sf "$DOTS/wsl.conf"   "/etc/wsl.conf"
@@ -90,27 +89,30 @@ install_github_source() {
 # Runtimes
 
 ## Node
-install_github_script nvm-sh/nvm master install.sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 . $HOME/.nvm/nvm.sh
 nvm install 10.14.1
 
 ## Python
-sudo apt -qq install python-minimal
 curl -fsSL https://pyenv.run | sh
-pyenv install 3.8.1 && pyenv global 3.8.1
+pyenv install 3.8.5 && pyenv global 3.8.5
 
 ## Rust
 curl -fsSL https://sh.rustup.rs | sh -s -- -y
 
-
-# Tools
-
-## CLI goodies
-install_github_debian BurntSushi/ripgrep
-install_github_source junegunn/fzf
-install_github_binary so-fancy/diff-so-fancy master/third_party/build_fatpack diff-so-fancy
-cargo install tealdeer
-pip install --user thefuck
-
-## Shellcheck
+## Shell Script
 sudo apt -qq install shellcheck
+
+
+# CLI Goodies
+
+## Starship
+curl -fsSL https://starship.rs/install.sh | bash
+## ripgrep
+install_github_debian BurntSushi/ripgrep
+## fzf
+install_github_source junegunn/fzf
+## tl;dr
+cargo install tealdeer
+## fuck
+pip install --user thefuck
