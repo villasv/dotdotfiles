@@ -116,3 +116,5 @@ install_github_source junegunn/fzf
 cargo install tealdeer
 ## fuck
 pip install --user thefuck
+## shell demo tools
+pip install --user termtosvg cowsay
