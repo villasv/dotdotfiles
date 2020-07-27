@@ -95,7 +95,9 @@ nvm install 10.14.1
 
 ## Python
 curl -fsSL https://pyenv.run | sh
-pyenv install 3.8.5 && pyenv global 3.8.5
+pyenv install 3.8.5
+pyenv install 2.7.18
+pyenv global 3.8.5 2.7.18
 
 ## Ruby
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-installer | bash
