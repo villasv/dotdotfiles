@@ -21,3 +21,11 @@ eval "$(rbenv init -)"
 
 ## Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# CLI Goodies
+
+## fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+## thefuck
+eval "$(thefuck --alias)"
