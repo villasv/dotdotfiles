@@ -5,6 +5,7 @@
 ## Base Packages
 sudo apt -y update
 sudo apt -y upgrade
+sudo apt -y autoremove
 sudo apt -y install vim curl wget jq make build-essential
 
 ## Dotfiles
@@ -38,14 +39,14 @@ GITHUB="https://raw.githubusercontent.com"
 if [ ! -d "$HOME/.nvm" ]; then
   NVM_REF="nvm-sh/nvm/master"
   NVM_SRC="install.sh"
-  PROFILE=/dev/null curl -fsSL "$GITHUB/$NVM_REF/$NVM_SRC" | sh
+  PROFILE=/dev/null curl -fsSL "$GITHUB/$NVM_REF/$NVM_SRC" | bash
   source $HOME/.nvm/nvm.sh
   nvm install --lts
 fi
 
 ## Python
 if [ ! -d "$HOME/.pyenv" ]; then
-  curl -fsSL https://pyenv.run | sh
+  curl -fsSL https://pyenv.run | bash
   pyenv install 3.8.5
   pyenv install 2.7.18
   pyenv global 3.8.5 2.7.18
@@ -56,7 +57,7 @@ fi
 if [ ! -d "$HOME/.rbenv" ]; then
   RBENV_REF="rbenv/rbenv-installer/master"
   RBENV_SRC="bin/rbenv-installer"
-  curl -fsSL "$GITHUB/$RBENV_REF/$RBENV_SRC" | sh
+  curl -fsSL "$GITHUB/$RBENV_REF/$RBENV_SRC" | bash
   rbenv install 2.7.1
   rbenv global 2.7.1
 fi
