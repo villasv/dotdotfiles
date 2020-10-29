@@ -36,10 +36,11 @@ GITHUB="https://raw.githubusercontent.com"
 
 ## Node
 if [ ! -d "$HOME/.nvm" ]; then
-  PROFILE=/dev/null curl -fsSL \
-    "$GITHUB/nvm-sh/nvm/master/install.sh" | sh
+  NVM_REF="nvm-sh/nvm/master"
+  NVM_SRC="install.sh"
+  PROFILE=/dev/null curl -fsSL "$GITHUB/$NVM_REF/$NVM_SRC" | sh
   source $HOME/.nvm/nvm.sh
-  nvm install 10.14.1
+  nvm install --lts
 fi
 
 ## Python
@@ -48,12 +49,14 @@ if [ ! -d "$HOME/.pyenv" ]; then
   pyenv install 3.8.5
   pyenv install 2.7.18
   pyenv global 3.8.5 2.7.18
+  pip install --upgrade pip
 fi
 
 ## Ruby
 if [ ! -d "$HOME/.rbenv" ]; then
-  sh_github rbenv/rbenv-installer master bin/rbenv-installer
-  curl -fsSL "$GITHUB/rbenv/rbenv-installer/master/bin/rbenv-installer" | sh
+  RBENV_REF="rbenv/rbenv-installer/master"
+  RBENV_SRC="bin/rbenv-installer"
+  curl -fsSL "$GITHUB/$RBENV_REF/$RBENV_SRC" | sh
   rbenv install 2.7.1
   rbenv global 2.7.1
 fi
