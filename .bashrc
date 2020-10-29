@@ -10,17 +10,12 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-
-
-
 alias please='while [ $? -ne 0 ] && [ $? -le 130 ]; do eval "$(fc -ln -1)"; done'
-
-
-############################################################
-########################  Cosmetics  #######################
-############################################################
 
 # Starhship
 eval "$(starship init bash)"
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # ⏱ ???
