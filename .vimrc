@@ -19,7 +19,6 @@ call plug#end()
 
 " general settings
 syntax enable				" syntax hightlight for known languages
-colorscheme solarized		" activate solarized color palette
 set number relativenumber	" current line number with relative jumps
 set updatetime=300			" faster updates for git diff markers
 set autoindent				" copy indentation from previous line
