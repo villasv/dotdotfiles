@@ -24,5 +24,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # CLI Goodies
 
+## fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 ## thefuck
 eval "$(thefuck --alias)"
+
