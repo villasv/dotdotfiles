@@ -81,4 +81,5 @@ cargo install tealdeer
 ## fuck
 pip install --user thefuck
 ## shell demo tools
+gem install lolcat
 pip install --user termtosvg cowsay

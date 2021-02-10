@@ -20,10 +20,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 ## Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
 
 # CLI Goodies
 
 ## thefuck
 eval "$(thefuck --alias)"
-
