@@ -1,21 +1,22 @@
-" install plugins on first use
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if exists('g:vscode') " Using Neovim inside VSCode
+else " Using regular vim/Neovim
+	if empty(glob('~/.vim/autoload/plug.vim')) " install Plug and plugins on first use
+	  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	endif
+	call plug#begin()
+	Plug 'altercation/vim-colors-solarized'	" solarized colors
+	Plug 'scrooloose/nerdtree'				" tree explorer
+	Plug 'junegunn/fzf'						" fuzzy finder base
+	Plug 'junegunn/fzf.vim'					" fuzzy finder cmds
+	Plug 'skywind3000/asyncrun.vim'			" shell commander
+	Plug 'tpope/vim-fugitive'				" git commands
+	Plug 'airblade/vim-gitgutter'			" git side markings
+	Plug 'leafgarland/vim-polyglot'			" languages pack
+	Plug 'dense-analysis/ale'               " async lint engine
+	call plug#end()
 endif
-
-call plug#begin()
-Plug 'altercation/vim-colors-solarized'	" solarized colors
-Plug 'scrooloose/nerdtree'				" tree explorer
-Plug 'junegunn/fzf'						" fuzzy finder base
-Plug 'junegunn/fzf.vim'					" fuzzy finder cmds
-Plug 'skywind3000/asyncrun.vim'			" shell commander
-Plug 'tpope/vim-fugitive'				" git commands
-Plug 'airblade/vim-gitgutter'			" git side markings
-Plug 'leafgarland/vim-polyglot'			" languages pack
-Plug 'dense-analysis/ale'               " async lint engine
-call plug#end()
 
 " general settings
 syntax enable				" syntax hightlight for known languages

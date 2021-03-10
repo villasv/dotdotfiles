@@ -18,6 +18,9 @@ alias please='while [ $? -ne 0 ] && [ $? -le 130 ]; do eval "$(fc -ln -1)"; done
 # Starhship
 eval "$(starship init bash)"
 
+# git
+[ -f /usr/share/bash-completion/completions/git ] \
+    && source /usr/share/bash-completion/completions/git
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
