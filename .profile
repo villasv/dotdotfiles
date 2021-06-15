@@ -12,7 +12,7 @@ export NVM_DIR="$HOME/.nvm"
 
 ## Python
 export PATH="/home/villasv/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
 
 ## Ruby
@@ -26,3 +26,4 @@ eval "$(rbenv init -)"
 
 ## thefuck
 eval "$(thefuck --alias)"
+

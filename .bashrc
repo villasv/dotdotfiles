@@ -1,4 +1,5 @@
 #!/bin/bash
+. "$HOME/.profile"
 
 # Bash History
 ## Infinite history buffer
