@@ -6,7 +6,7 @@
 sudo apt -y update
 sudo apt -y upgrade
 sudo apt -y autoremove
-sudo apt -y install vim curl wget jq make build-essential
+sudo apt -y install vim curl wget jq make build-essential pkg-config libssl-dev zlib1g-dev
 
 ## Dotfiles
 DOTS="$HOME/.dotfiles"
@@ -40,11 +40,12 @@ if [ ! -d "$HOME/.nvm" ]; then
   NVM_REF="nvm-sh/nvm/master"
   NVM_SRC="install.sh"
   PROFILE=/dev/null curl -fsSL "$GITHUB/$NVM_REF/$NVM_SRC" | bash
-  source $HOME/.nvm/nvm.sh
+  source "$HOME/.nvm/nvm.sh"
   nvm install --lts
 fi
 
 ## Python
+export PATH="$HOME/.pyenv/bin:$PATH"
 if [ ! -d "$HOME/.pyenv" ]; then
   curl -fsSL https://pyenv.run | bash
   pyenv install 3.8.5
@@ -54,16 +55,18 @@ if [ ! -d "$HOME/.pyenv" ]; then
 fi
 
 ## Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
 if [ ! -d "$HOME/.rbenv" ]; then
   RBENV_REF="rbenv/rbenv-installer/master"
   RBENV_SRC="bin/rbenv-installer"
   curl -fsSL "$GITHUB/$RBENV_REF/$RBENV_SRC" | bash
-  rbenv install 2.7.1
-  rbenv global 2.7.1
+  rbenv install 3.0.2
+  rbenv global 3.0.2
 fi
 
 ## Rust
 curl -fsSL https://sh.rustup.rs | sh -s -- -y
+export PATH="$HOME/.cargo/bin:$PATH"
 
 ## Shell
 sudo apt -qq install shellcheck
