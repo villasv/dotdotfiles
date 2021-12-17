@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+softwareupdate --install-rosetta
+RGH="https://raw.githubusercontent.com"
+
 DOTS="$HOME/.dotfiles"
 CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 if [ "$CURR_DIR" != "$DOTS" ]
@@ -17,7 +20,7 @@ fi
 ## Homebrew
 if ! [ -x "$(command -v brew)" ]
 then
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  curl -fsSL "$RGH/Homebrew/install/HEAD/install.sh" | bash
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
@@ -34,4 +37,13 @@ ln -sf "$DOTS/.gitignore"  "$HOME/.gitignore"
 
 ## Vim
 ln -sf "$DOTS/.vimrc"      "$HOME/.vimrc"
+
+## Python
+export PATH="$HOME/.pyenv/bin:$PATH"
+if [ ! -d "$HOME/.pyenv" ]; then
+  curl -fsSL https://pyenv.run | bash
+  pyenv install 3.7.12
+  pyenv global 3.7.12
+  pip install --upgrade pip
+fi
 
