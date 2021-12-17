@@ -25,6 +25,8 @@ fi
 ln -sf "$DOTS/.zshrc"      "$HOME/.zshrc"
 ln -sf "$DOTS/.zprofile"   "$HOME/.zprofile"
 brew install starship
+brew tap homebrew/cask-fonts
+brew install --cask font-jetbrains-mono-nerd-font
 
 ## Git
 ln -sf "$DOTS/.gitconfig"  "$HOME/.gitconfig"
