@@ -22,8 +22,6 @@ eval "$(starship init bash)"
 # git
 [ -f /usr/share/bash-completion/completions/git ] \
     && source /usr/share/bash-completion/completions/git
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # ⏱ ???
 

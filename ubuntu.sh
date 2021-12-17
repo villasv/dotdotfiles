@@ -32,7 +32,6 @@ sudo apt -qq install shellcheck
 # CLI Goodies
 
 ## fzf + ripgrep
-sudo apt install fzf
 cargo install ripgrep
 ## docs & manuals
 cargo install tealdeer
