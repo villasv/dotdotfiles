@@ -5,3 +5,6 @@ eval "$(pyenv virtualenv-init -)"
 
 autoload -Uz compinit && compinit
 
+# Homebrew
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+

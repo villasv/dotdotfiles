@@ -1,6 +1,5 @@
 #!/bin/bash -e
 
-softwareupdate --install-rosetta
 RGH="https://raw.githubusercontent.com"
 
 DOTS="$HOME/.dotfiles"
@@ -31,7 +30,7 @@ brew install starship
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 brew install fzf
-$(brew --prefix)/opt/fzf/install
+! [ "$HOME/.fzf.zsh" ] && $(brew --prefix)/opt/fzf/install
 
 ## Git
 ln -sf "$DOTS/.gitconfig"  "$HOME/.gitconfig"
