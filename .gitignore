@@ -2,3 +2,5 @@
 # Lock Files
 *.lock
 
+# Vim Swap Files
+*.swp
