@@ -19,15 +19,17 @@ else " Using regular vim/Neovim
 endif
 
 " general settings
-syntax enable				" syntax hightlight for known languages
-set number relativenumber	" current line number with relative jumps
-set updatetime=300			" faster updates for git diff markers
-set autoindent				" copy indentation from previous line
-set smartindent				" guess when more indentation is needed
-set tabstop=4				" sane default of 4 characters wide tabs
-set shiftwidth=4			" spaces per shift (should equal tabstop)
-set foldmethod=indent		" allow folding per indent levels
-set foldlevel=5				" set a sane default of initial folding
+syntax enable					" syntax hightlight for known languages
+set number relativenumber		" current line number with relative jumps
+set updatetime=300				" faster updates for git diff markers
+set autoindent					" copy indentation from previous line
+set smartindent					" guess when more indentation is needed
+set tabstop=4					" sane default of 4 characters wide tabs
+set shiftwidth=4				" spaces per shift (should equal tabstop)
+set foldmethod=indent			" allow folding per indent levels
+set foldlevel=5					" set a sane default of initial folding
+set backspace=indent,eol,start	" allow backspace to delete everything
+
 
 " searching
 set ignorecase			" ignore case when searching by default
