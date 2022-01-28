@@ -16,3 +16,8 @@
 [color]
 	ui = true
 
+[init]
+	defaultBranch = main
+
+[rerere]
+	enabled = true
