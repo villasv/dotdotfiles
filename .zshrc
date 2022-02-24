@@ -1,3 +1,9 @@
+# History
+SAVEHIST=1000000 # big history file
+HISTSIZE=1000000 # big history buffer
+setopt HIST_REDUCE_BLANKS	# ignore whitespace when saving to file
+setopt SHARE_HISTORY		# history from all shells immediately visible
+
 eval "$(starship init zsh)"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
