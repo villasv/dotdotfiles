@@ -40,11 +40,8 @@ ln -sf "$DOTS/.gitignore"  "$HOME/.gitignore"
 ln -sf "$DOTS/.vimrc"      "$HOME/.vimrc"
 
 ## Python
+pip3 install --upgrade pip
 export PATH="$HOME/.pyenv/bin:$PATH"
 if [ ! -d "$HOME/.pyenv" ]; then
   curl -fsSL https://pyenv.run | bash
-  pyenv install 3.8.12
-  pyenv global 3.8.12
-  pip install --upgrade pip
 fi
-
