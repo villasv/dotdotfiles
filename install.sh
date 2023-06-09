@@ -31,7 +31,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 
 brew install fzf
-! [ "$HOME/.fzf.zsh" ] && $(brew --prefix)/opt/fzf/install
+[ ! -f "$HOME/.fzf.zsh" ] && $(brew --prefix)/opt/fzf/install
 
 ## Git
 ln -sf "$DOTS/.gitconfig"  "$HOME/.gitconfig"
