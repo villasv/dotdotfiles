@@ -26,9 +26,10 @@ fi
 ## Shell
 ln -sf "$DOTS/.zshrc"      "$HOME/.zshrc"
 ln -sf "$DOTS/.zprofile"   "$HOME/.zprofile"
-brew install starship
+brew install starship shfmt
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
+
 brew install fzf
 ! [ "$HOME/.fzf.zsh" ] && $(brew --prefix)/opt/fzf/install
 
@@ -38,10 +39,18 @@ ln -sf "$DOTS/.gitignore"  "$HOME/.gitignore"
 
 ## Vim
 ln -sf "$DOTS/.vimrc"      "$HOME/.vimrc"
+brew install neovim
 
 ## Python
 pip3 install --upgrade pip
 export PATH="$HOME/.pyenv/bin:$PATH"
 if [ ! -d "$HOME/.pyenv" ]; then
   curl -fsSL https://pyenv.run | bash
+fi
+
+## Node
+if [ ! -d "$HOME/.nvm" ]; then
+  PROFILE=/dev/null curl -fsSL "$RGH/nvm-sh/nvm/HEAD/install.sh" | bash
+  source "$HOME/.nvm/nvm.sh"
+  nvm install --lts
 fi

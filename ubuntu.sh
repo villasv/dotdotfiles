@@ -2,15 +2,6 @@
 
 # System
 
-## Node
-if [ ! -d "$HOME/.nvm" ]; then
-  NVM_REF="nvm-sh/nvm/master"
-  NVM_SRC="install.sh"
-  PROFILE=/dev/null curl -fsSL "$GITHUB/$NVM_REF/$NVM_SRC" | bash
-  source "$HOME/.nvm/nvm.sh"
-  nvm install --lts
-fi
-
 ## Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 if [ ! -d "$HOME/.rbenv" ]; then
