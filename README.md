@@ -1,7 +1,7 @@
 # .dotfiles
 
 - [Homebrew][]
-- [starship][] + [fzf][], [rg][], [tldr][] + [JetBrains Mono][] ([Nerd Patch][])
+- [starship][] + [fzf][], [rg][], [tldr][], [thefuck][] + [JetBrains Mono][] ([Nerd Patch][])
 - [neovim][] + [solarized][], [NERDTree][] + home row remap
 - [nvm][]
 - [pyenv][]
@@ -13,6 +13,7 @@
 [fzf]: https://github.com/junegunn/fzf
 [rg]: https://github.com/BurntSushi/ripgrep
 [tldr]: https://github.com/dbrgn/tealdeer
+[thefuck]: https://github.com/nvbn/thefuck
 [JetBrains Mono]: https://github.com/JetBrains/JetBrainsMono
 [Nerd Patch]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono
 [neovim]: https://neovim.io
