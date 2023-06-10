@@ -4,12 +4,10 @@ RGH="https://raw.githubusercontent.com"
 
 # Self Install
 DOTS="$HOME/.dotfiles"
-CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-if [ "$CURR_DIR" != "$DOTS" ]
-then
+CURR_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+if [ "$CURR_DIR" != "$DOTS" ]; then
   echo "Project directory at $CURR_DIR, need to move to $DOTS ..."
-  if [ -d "$DOTS" ]
-  then
+  if [ -d "$DOTS" ]; then
     echo " ... but $DOTS already exists, moving to backup"
     mv "$DOTS" "$DOTS.bkp"
   fi
@@ -18,26 +16,25 @@ then
 fi
 
 ## Homebrew
-if ! [ -x "$(command -v brew)" ]
-then
+if ! [ -x "$(command -v brew)" ]; then
   curl -fsSL "$RGH/Homebrew/install/HEAD/install.sh" | bash
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 ## Startship
-ln -sf "$DOTS/.zshrc"      "$HOME/.zshrc"
-ln -sf "$DOTS/.zprofile"   "$HOME/.zprofile"
+ln -sf "$DOTS/.zshrc" "$HOME/.zshrc"
+ln -sf "$DOTS/.zprofile" "$HOME/.zprofile"
 brew install starship fzf
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 [ ! -f "$HOME/.fzf.zsh" ] && $(brew --prefix)/opt/fzf/install
 
 ## Git
-ln -sf "$DOTS/.gitconfig"  "$HOME/.gitconfig"
-ln -sf "$DOTS/.gitignore"  "$HOME/.gitignore"
+ln -sf "$DOTS/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$DOTS/.gitignore" "$HOME/.gitignore"
 
 ## Vim
-ln -sf "$DOTS/.vimrc"      "$HOME/.vimrc"
+ln -sf "$DOTS/.vimrc" "$HOME/.vimrc"
 brew install neovim
 
 ## Python
