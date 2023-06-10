@@ -31,7 +31,7 @@ ln -sf "$DOTS/.zprofile" "$HOME/.zprofile"
 brew install starship fzf ripgrep tealdeer
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
-[ ! -f "$HOME/.fzf.zsh" ] && $(brew --prefix)/opt/fzf/install
+[ ! -f "$HOME/.fzf.zsh" ] && "$(brew --prefix)/opt/fzf/install"
 
 ## Vim
 ln -sf "$DOTS/.vimrc" "$HOME/.vimrc"
@@ -47,8 +47,6 @@ fi
 ## Node
 if [ ! -d "$HOME/.nvm" ]; then
   PROFILE=/dev/null curl -fsSL "$RGH/nvm-sh/nvm/HEAD/install.sh" | bash
-  source "$HOME/.nvm/nvm.sh"
-  nvm install --lts
 fi
 
 ## Rust
