@@ -2,6 +2,7 @@
 
 RGH="https://raw.githubusercontent.com"
 
+# Self Install
 DOTS="$HOME/.dotfiles"
 CURR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 if [ "$CURR_DIR" != "$DOTS" ]
@@ -23,14 +24,12 @@ then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-## Shell
+## Startship
 ln -sf "$DOTS/.zshrc"      "$HOME/.zshrc"
 ln -sf "$DOTS/.zprofile"   "$HOME/.zprofile"
-brew install starship shfmt
+brew install starship fzf
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
-
-brew install fzf
 [ ! -f "$HOME/.fzf.zsh" ] && $(brew --prefix)/opt/fzf/install
 
 ## Git
@@ -54,3 +53,12 @@ if [ ! -d "$HOME/.nvm" ]; then
   source "$HOME/.nvm/nvm.sh"
   nvm install --lts
 fi
+
+## Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+if [ ! -d "$HOME/.cargo" ]; then
+  curl -fsSL https://sh.rustup.rs | sh -s -- -y
+fi
+
+## Shell
+brew install shellcheck shfmt

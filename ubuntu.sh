@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-# System
-
 ## Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 if [ ! -d "$HOME/.rbenv" ]; then
@@ -11,13 +9,6 @@ if [ ! -d "$HOME/.rbenv" ]; then
   rbenv install 3.0.2
   rbenv global 3.0.2
 fi
-
-## Rust
-curl -fsSL https://sh.rustup.rs | sh -s -- -y
-export PATH="$HOME/.cargo/bin:$PATH"
-
-## Shell
-sudo apt -qq install shellcheck
 
 
 # CLI Goodies

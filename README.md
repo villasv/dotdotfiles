@@ -1,16 +1,21 @@
 # .dotfiles
 
-## Tools
-- diff-so-fancy
-- fzf
-- nvm + node 10.14.1
-- pyenv + python 3.8.0
+- [Homebrew][]
+- [starship][] + [fzf][] + [JetBrains Mono][] ([Nerd Patch][])
+- [neovim][] + ... #todo list the plugins
+- [nvm][]
+- [pyenv][]
+- shell scripting (shfmt, shellcheck)
+
 - ripgrep
 - shellcheck
 - tldr
-- zsh + oh-my-zsh
 
-Aku Soku Zan wallpaper is derived work from [this DeviantArt][art].
-
-[art]: https://www.deviantart.com/rpmsauron/art/Tattoo-Aku-Soku-Zan-178682914
-
+[Homebrew]: https://brew.sh
+[starship]: https://starship.rs
+[fzf]: https://github.com/junegunn/fzf
+[JetBrains Mono]: https://github.com/JetBrains/JetBrainsMono
+[Nerd Patch]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono
+[neovim]: https://neovim.io
+[nvm]: https://github.com/nvm-sh/nvm
+[pyenv]: https://github.com/pyenv/pyenv
