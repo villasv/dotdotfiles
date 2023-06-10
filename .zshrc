@@ -25,3 +25,11 @@ eval "$(pyenv virtualenv-init -)"
 export NVM_DIR="$HOME/.nvm"
 source "$NVM_DIR/nvm.sh"
 source "$NVM_DIR/bash_completion"
+
+## Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME/.cargo/env"
+
+## Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
