@@ -15,6 +15,10 @@ if [ "$CURR_DIR" != "$DOTS" ]; then
   echo " [OK]"
 fi
 
+## Git
+ln -sf "$DOTS/.gitconfig" "$HOME/.gitconfig"
+ln -sf "$DOTS/.gitignore" "$HOME/.gitignore"
+
 ## Homebrew
 if ! [ -x "$(command -v brew)" ]; then
   curl -fsSL "$RGH/Homebrew/install/HEAD/install.sh" | bash
@@ -24,14 +28,10 @@ fi
 ## Startship
 ln -sf "$DOTS/.zshrc" "$HOME/.zshrc"
 ln -sf "$DOTS/.zprofile" "$HOME/.zprofile"
-brew install starship fzf
+brew install starship fzf ripgrep tealdeer
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
 [ ! -f "$HOME/.fzf.zsh" ] && $(brew --prefix)/opt/fzf/install
-
-## Git
-ln -sf "$DOTS/.gitconfig" "$HOME/.gitconfig"
-ln -sf "$DOTS/.gitignore" "$HOME/.gitignore"
 
 ## Vim
 ln -sf "$DOTS/.vimrc" "$HOME/.vimrc"
@@ -55,6 +55,12 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 if [ ! -d "$HOME/.cargo" ]; then
   curl -fsSL https://sh.rustup.rs | sh -s -- -y
+fi
+
+## Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+if [ ! -d "$HOME/.rbenv" ]; then
+  curl -fsSL "$RGH/rbenv/rbenv-installer/HEAD/bin/rbenv-installer" | bash
 fi
 
 ## Shell
