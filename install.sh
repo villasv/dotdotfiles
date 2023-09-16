@@ -27,6 +27,7 @@ fi
 
 ## Startship
 ln -sf "$DOTS/.zshrc" "$HOME/.zshrc"
+ln -sf "$DOTS/starship.toml" "$HOME/.config/starship.toml"
 brew install starship fzf ripgrep tealdeer thefuck
 brew tap homebrew/cask-fonts
 brew install --cask font-jetbrains-mono-nerd-font
